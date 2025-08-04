@@ -84,7 +84,7 @@ export class AppComponent implements OnInit {
     if (!this.newTask.trim() || !this.dueDate) return;
 
     if (!isValidDueDateTime(this.dueDate, this.dueTime)) {
-      alert('Please select a valid due date and time within the allowed range.');
+      alert('Please select a valid due date and time within the allowed range (not past, not beyond 1 year).');
       return;
     }
 
@@ -137,7 +137,7 @@ export class AppComponent implements OnInit {
     if (!this.editingId || !this.newTask.trim() || !this.dueDate) return;
 
     if (!isValidDueDateTime(this.dueDate, this.dueTime)) {
-      alert('Please select a valid due date and time within the allowed range.');
+      alert('Please select a valid due date and time within the allowed range (not past, not beyond 1 year).');
       return;
     }
 

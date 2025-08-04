@@ -1,6 +1,5 @@
 ﻿using System.Collections.Concurrent;
 using TodoApp.Server.Models;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace TodoApp.Server.Services
 {
