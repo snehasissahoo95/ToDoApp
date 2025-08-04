@@ -4,7 +4,7 @@ A Todo application built with ASP.NET Core and Angular. This app supports creati
 
 ## Features
 
-- Add new todo items
+- Add new todo items within the allowed range (not past, not beyond 1 year).
 - Update existing todo items
 - List all todo items
 - Delete a todo item by ID
