@@ -1,0 +1,192 @@
+body {
+  background: #f8f8f8;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Header */
+.app-header {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 28px;
+  color: #000000;
+  font-weight: bold;
+}
+
+
+/* Form container */
+.form-container {
+  padding: 20px;
+  border-radius: 25px;
+  margin: 20px auto;
+  background: linear-gradient(145deg, #e3f2fd, #bbdefb, #90caf9, #64b5f6);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.7), 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.form-container.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 60%;
+  max-width: 1200px;
+}
+
+.form-container.column {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 100%;
+}
+
+/* Default form field width */
+mat-form-field {
+  min-width: 200px;
+}
+
+/* Column layout: full-width form fields on mobile */
+.form-container.column .form-grid {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.form-container.column mat-form-field,
+.form-container.column .inline-actions {
+  width: 100%;
+}
+
+/* Row layout: form fields laid out inline on desktop */
+.form-container.row .form-grid {
+  flex-direction: row;
+}
+
+.form-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.inline-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: -1.5rem;
+}
+
+::ng-deep mat-label {
+  color: #1a1a1a;
+  font-size: 16px;
+}
+
+/* Todo list layout */
+.todo-grid.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px;
+}
+
+.todo-grid.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+}
+
+.day-column {
+  width: 250px;
+}
+
+.day-card {
+  background-color: #e0f2f1;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 12px;
+}
+
+.day-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.delete-all-btn {
+  background-color: #FF5252;
+  border: none;
+  border-radius: 50%;
+  font-size: 12px;
+  width: 24px;
+  height: 24px;
+  color: white;
+  position: absolute;
+  padding: 0px;
+  top: -2px;
+  right: -2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sticky-note {
+  background-color: #fff9c4;
+  border-left: 5px solid #fbc02d;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 12px;
+}
+
+.task-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.task-text {
+  flex: 1 1 auto;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.due-time {
+  font-size: 12px;
+  color: #555;
+}
+
+.right-column button {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+}
+
+:host {
+  display: block;
+  background-image: url('../assets/todo_image.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: scroll;
+  min-height: 100vh;
+  padding: 16px;
+}

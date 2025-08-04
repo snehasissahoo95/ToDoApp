@@ -1,0 +1,81 @@
+<h1 class="app-header">ToDo App</h1>
+
+<div class="form-container" [ngClass]="formLayoutClass">
+  <div class="form-grid">
+    <mat-form-field appearance="outline">
+      <mat-label>New Task</mat-label>
+      <input matInput
+             [(ngModel)]="newTask"
+             required
+             (keydown.enter)="editingId ? saveEdit() : addTodo()" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Due Date</mat-label>
+      <input matInput
+             type="date"
+             [(ngModel)]="dueDate"
+             [min]="minDate"
+             [max]="maxDate"
+             (change)="onDateChange()"
+             required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Due Time</mat-label>
+      <input matInput
+             type="time"
+             [(ngModel)]="dueTime"
+             required />
+    </mat-form-field>
+
+    <div class="inline-actions">
+      <button mat-raised-button
+              color="primary"
+              [disabled]="!newTask || !dueDate || !dueTime"
+              (click)="editingId ? saveEdit() : addTodo()">
+        {{ editingId ? 'Save' : 'Add' }}
+      </button>
+      <button *ngIf="editingId"
+              mat-raised-button
+              color="warn"
+              (click)="cancelEdit()">
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="todo-grid" [ngClass]="todoLayoutClass">
+  <div *ngFor="let group of groupedTodos" class="day-column">
+    <mat-card class="day-card">
+      <mat-card-header class="day-card-header">
+        <mat-card-title>{{ group[0] }}</mat-card-title>
+        <button mat-icon-button
+                *ngIf="group[1].length > 1"
+                color="warn"
+                aria-label="Delete all tasks"
+                (click)="deleteAllForDate(group[0])"
+                class="delete-all-btn">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-card-header>
+      <mat-card *ngFor="let todo of group[1]" class="sticky-note">
+        <mat-card-content>
+          <div class="task-row">
+            <div class="task-text">{{ todo.task }}</div>
+            <div class="right-column">
+              <div class="due-time">{{ todo.dueDateTime | date: 'shortTime' }}</div>
+              <button mat-icon-button color="primary" (click)="editTodo(todo)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="deleteTodo(todo.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-card>
+  </div>
+</div>

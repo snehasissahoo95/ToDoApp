@@ -1,0 +1,16 @@
+const target = 'https://localhost:7291';
+
+const PROXY_CONFIG = [
+  {
+    context: [
+      "/weatherforecast",
+      "/api/todo"
+    ],
+    target,
+    secure: false,
+    changeOrigin: true,
+    logLevel: "debug"
+  }
+]
+
+module.exports = PROXY_CONFIG;
